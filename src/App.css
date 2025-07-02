@@ -1,0 +1,48 @@
+:root {
+  --lightBlack: #1A1A1F;
+  --black: #000;
+  --whiteClr: #fff;
+  --primeClr: #96969f;
+  --greenClr: #0d737d;
+  --grayClr: #5f5f68;
+}
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+@import url('./Assets/Css/ProductCard.css');
+
+body.clo-Assessment {
+  background-color: var(--black);
+}
+
+.clo-Assessment .range-slider {
+  background-color: var(--grayClr);
+  height: 6px;
+  margin: 0px 8px;
+}
+
+.clo-Assessment .range-slider .range-slider__range {
+  background-color: var(--greenClr);
+}
+
+.clo-Assessment .range-slider .range-slider__thumb {
+  width: 12px;
+  height: 12px;
+  background-color: var(--whiteClr);
+}
+
+.sort-sec span {
+  color: var(--whiteClr);
+  margin-right: 10px;
+}
+
+.sort-sec select {
+  background-color: var(--lightBlack);
+  color: var(--grayClr);
+}

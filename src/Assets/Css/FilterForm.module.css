@@ -1,0 +1,67 @@
+.filterBox {
+    background-color: var(--lightBlack);
+    border-radius: 4px;
+}
+
+.searchSec input {
+    background-color: var(--lightBlack);
+    border-radius: 50px;
+    height: 50px;
+    padding: 10px 20px;
+    color: var(--whiteClr)
+}
+
+.searchSec .search-box {
+    position: relative;
+}
+
+.searchSec img {
+    position: absolute;
+    top: 50%;
+    filter: invert(1);
+    right: 40px;
+    transform: translateY(-50%);
+}
+
+.filterBox label {
+    margin-bottom: 0px;
+    color: var(--primeClr);
+}
+
+.filterBox button {
+    color: var(--whiteClr);
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.filterBox button img {
+    width: 15px;
+    filter: invert(1);
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.filterBox input[type=checkbox] {
+    accent-color: var(--greenClr);
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.slideValue input {
+    width: 40px;
+    background-color: var(--grayClr);
+    border: 0px;
+    color: var(--primeClr);
+    text-align: center;
+}
+
+.slideValue input::-webkit-outer-spin-button,
+.slideValue input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+@media screen and (min-width: 1200px) {
+    .slideValue {
+        width: 75%;
+    }
+}
