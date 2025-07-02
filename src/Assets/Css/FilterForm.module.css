@@ -11,6 +11,12 @@
     color: var(--whiteClr)
 }
 
+.searchSec input:focus-visible {
+    border-color: var(--greenClr);
+    box-shadow: none;
+    outline: 2px solid var(--greenClr);
+}
+
 .searchSec .search-box {
     position: relative;
 }
@@ -19,7 +25,7 @@
     position: absolute;
     top: 50%;
     filter: invert(1);
-    right: 40px;
+    right: 25px;
     transform: translateY(-50%);
 }
 
@@ -32,6 +38,7 @@
     color: var(--whiteClr);
     font-size: 15px;
     text-transform: uppercase;
+    text-align: right;
 }
 
 .filterBox button img {
@@ -63,5 +70,16 @@
 @media screen and (min-width: 1200px) {
     .slideValue {
         width: 75%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .filterBox button {
+        text-align: left;
+    }
+
+    .filterBox label,
+    .slideValue input {
+        font-size: 15px;
     }
 }

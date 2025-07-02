@@ -6,7 +6,7 @@ function NavBar() {
             <div className="">
                 <img src={Assets.Logo} alt="logoImage" />
             </div>
-            <div className="">
+            <div className="hamburgerIcon">
                 <img src={Assets.Hamburger} alt="hamburgerIcon" />
             </div>
         </nav>

@@ -3,19 +3,27 @@ import { Assets } from '../../Assets/Assets';
 import style from '../../Assets/Css/FilterForm.module.css';
 import RangeSlider from "react-range-slider-input";
 import { useDispatch, useSelector } from 'react-redux';
-import { setSearchText, toggleCategory, setPriceRange, setSortBy } from '../../Slices/FilterSlice';
+import { setSearchText, toggleCategory, setPriceRange, setSortBy, setReset } from '../../Slices/FilterSlice';
 
 function FilterForm() {
 
     const checkBoxValue = ['Paid', 'Free', 'View Only'];
+
     const [rangeValue, setRangeValue] = useState([0, 999]);
+
     const filters = useSelector(state => state.filters);
+
     const dispatch = useDispatch();
+
+    function handleClick(e) {
+        e.preventDefault();
+        dispatch(setReset())
+    }
 
     return (
         <form>
             <div className={`${style.searchSec} mb-4`}>
-                <div className='search-box col-12 col-sm-10 col-lg-8 mx-auto'>
+                <div className='search-box col-12 col-sm-10 col-lg-8 mx-auto px-0'>
                     <input type="text" className="border-0 w-100" placeholder="search" name='search'
                         value={filters.searchText}
                         onChange={(e) => dispatch(setSearchText(e.target.value))}
@@ -26,7 +34,7 @@ function FilterForm() {
             <div className={`${style.filterBox} row justify-content-between mx-0 py-2`}>
                 <div className='col-12 col-md-10 col-xl-11'>
                     <div className='row align-items-center mx-0'>
-                        <div className='checkbox-sec col-12 col-md-6 col-xl-4 px-0'>
+                        <div className='checkbox-sec col-12 col-md-6 col-xl-4 px-0 mb-2'>
                             <label className='mr-3'> Pricing Option</label>
                             {checkBoxValue.map((item) => (
                                 <div className="form-check form-check-inline" key={item}>
@@ -38,11 +46,12 @@ function FilterForm() {
                                 </div>
                             ))}
                         </div>
-                        <div className='range-slide-sec col-12 col-md-6 col-xl-4 px-0'>
+                        <div className='range-slide-sec col-12 col-md-6 col-xl-4 px-0 mb-2'>
                             <label className='mr-3'>Price Filter</label>
                             <div className={`${style.slideValue} d-flex mt-2 align-items-center`}>
                                 <input type="number" value={rangeValue[0]} readOnly />
                                 <RangeSlider value={rangeValue} min={0} max={999}
+                                    disabled={!filters.selectedCategories.includes('Paid')}
                                     onInput={(e) => {
                                         setRangeValue(e);
                                         dispatch(setPriceRange(e));
@@ -52,7 +61,7 @@ function FilterForm() {
                         </div>
                     </div>
                 </div>
-                <button className='bg-transparent border-0 col-12 col-md-2 col-xl-1 text-right'><img src={Assets.ResetIcon} alt="resetIcon" />Reset</button>
+                <button className='bg-transparent border-0 col-12 col-md-2 col-xl-1' onClick={handleClick}><img src={Assets.ResetIcon} alt="resetIcon" />Reset</button>
             </div>
             <div className='sort-sec mt-4 text-right'>
                 <span>SortBy</span>

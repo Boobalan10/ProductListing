@@ -1,5 +1,6 @@
 
 function ProductCard({ productData }) {
+
     return (
         <div className='card-sec d-flex flex-column h-100'>
             <div className='product-img-sec h-100'>

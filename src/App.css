@@ -45,4 +45,38 @@ body.clo-Assessment {
 .sort-sec select {
   background-color: var(--lightBlack);
   color: var(--grayClr);
+  cursor: pointer;
+}
+
+.product-data {
+  background-color: var(--lightBlack);
+}
+
+.hamburgerIcon img {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.navSec {
+  border-bottom: 1.5px solid var(--lightBlack);
+}
+
+@media screen and (max-width: 1000px) {
+
+  .product-details h5,
+  .price h5 {
+    font-size: 15px;
+  }
+
+  .product-details p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .sort-sec span,
+  .sort-sec select {
+    font-size: 15px;
+  }
 }

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     searchText: '',
     selectedCategories: [],
-    priceRange: [0, 1000],
+    priceRange: [0, 999],
     sortBy: 'none'
 };
 
@@ -26,11 +26,14 @@ const filtersSlice = createSlice({
         setSortBy: (state, action) => {
             state.sortBy = action.payload;
         },
+        setReset: () => {
+            return initialState;
+        },
         setFiltersFromURL: (state, action) => {
             return { ...state, ...action.payload };
         }
     }
 });
 
-export const { setSearchText, toggleCategory, setPriceRange, setSortBy, setFiltersFromURL } = filtersSlice.actions;
+export const { setSearchText, toggleCategory, setPriceRange, setSortBy, setReset, setFiltersFromURL } = filtersSlice.actions;
 export default filtersSlice.reducer;
